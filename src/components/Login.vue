@@ -19,7 +19,7 @@ export default {
   },
   methods:{
     loginAjax:function () {
-      console.log('url',url)
+      // console.log('url',url)
       this.$axios.post(url.login,{username:'admin',password:12345678})
         .then(function (res) {
           console.log(res);
