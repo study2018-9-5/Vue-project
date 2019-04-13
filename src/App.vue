@@ -5,17 +5,35 @@
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App',
+    data(){
+      return{
+
+      }
+    },
+    methods:{
+      resetRem(){
+        (function(d, w){
+          var de = d.documentElement
+          console.log('de',de)
+
+        })(document, window)
+      }
+    },
+    mounted:function(){
+      this.resetRem();
+    },
+  }
 </script>
 
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-  }
-  ul{
-    list-style: none;
+<style lang="scss">
+  @import './assets/css/reset.css';
+  @import './assets/fonts/iconfont.css';
+  #app{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // height: calc(100% - 60px);
   }
 </style>
