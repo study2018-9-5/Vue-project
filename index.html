@@ -4,9 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>my-app</title>
+    <style>
+    	#header{
+    		height: 60px; 
+    		background: #f60; 
+    		line-height: 60px; 
+    		padding-left: 30px; 
+    		font-size: 14px;
+    	}
+      #header .nav li{
+        list-style: none;
+        float: left;
+        margin: 0 2px;
+        height: 60px;
+        line-height: normal;
+        padding: 15px 0 0;
+        font-size: 14px;
+      }
+      #header .nav li a{
+        font-size: 14px;
+        transition: all 1s;
+        vertical-align: middle;
+        border-radius: 15px;
+        padding: 0 12px;
+        line-height: 30px;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+      }
+      #header .nav li a:hover{
+        background: #B25B43;
+      }
+    </style>
   </head>
   <body>
+  	<!-- 页面的头部 -->
+  	<div id="header">
+      <ul class="nav">
+        <li><a href="#/guest">首页</a></li>
+        <li><a href="#/tabs">查询工具</a></li>
+        <li><a href="#/searchBtn">查询按钮</a></li>
+      </ul>
+  	</div>
+
+  	<!-- 页面的body -->
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <!-- built files will be auto injected 生成的文件将自动注入 -->
   </body>
 </html>

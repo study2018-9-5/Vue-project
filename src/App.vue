@@ -32,8 +32,8 @@
   @import './assets/fonts/iconfont.css';
   #app{
     width: 100%;
-    height: 100%;
+    // height: 100%;
+    height: calc(100% - 60px);
     position: relative;
-    // height: calc(100% - 60px);
   }
 </style>
