@@ -33,16 +33,26 @@
 				  </el-tabs>
 				</div>
 			</div>
+			<div class="bottom">
+				<div class="title">
+					<a href="https://element.eleme.cn/#/zh-CN/component/menu">NavMenu 导航菜单</a>
+				</div>
+				<div class="table-div">
+					<Table/>
+				</div>
+			</div>
 		</div>
   </div>
 </template>
 
 <script>
 	import NavMenu from "@/components/NavMenu";
+	import Table from "@/components/Table";
 	export default{
 		name: 'Home',
 		components:{
-			NavMenu
+			NavMenu,
+			Table
 		},
 		data(){
 			return{
@@ -67,6 +77,17 @@
 </script>
 
 <style lang="scss">
+	// 混合（mixin）允许您定义可以在整个样式表中重复使用的样式，
+	// 而避免了使用无语意的类（class）
+	@mixin title {
+	 font-weight: bold;
+		a{
+			height: 25px;
+			line-height: 25px;
+			display: inline-block;
+		}
+	}
+
 	.home{
 		width: 100%;
 		height: 100%;
@@ -100,13 +121,7 @@
 					border-radius: 3px;
 					background: #fff;
 					.title{
-						font-weight: bold;
-						a{
-							height: 25px;
-							line-height: 25px;
-							display: inline-block;
-
-						}
+						@include title;
 					}
 					.carouselBox{
 						.el-carousel__item:nth-child(2n) {
@@ -130,7 +145,17 @@
 					background: #fff;
 				}
 			}
+			.bottom{
+				width: 100%;
+				height: 320px;
+				background: #fff;
+				margin-top: 10px;
+				padding: 10px 20px;
+				border-radius: 3px;
+				.title{
+					@include title;
+				}
+			}
 		}
 	}
-	
 </style>

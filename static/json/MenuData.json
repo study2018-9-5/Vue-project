@@ -1,0 +1,39 @@
+{
+	"tableData":[
+		{
+			"name":"background-color",
+			"value":"---",
+			"defaultVal":"#ffffff",
+			"type":"string",
+			"description":"菜单的背景色仅支持 hex 格式"
+		},
+		{
+			"name":"default-active",
+			"value":"---",
+			"defaultVal":"---",
+			"type":"string",
+			"description":"当前激活菜单的 index。"
+		},
+		{
+			"name":"router",
+			"value":"true/false",
+			"defaultVal":"false",
+			"type":"boolean",
+			"description":"是否使用 vue-router 的模式，启用该模式会在激活导航时以 index 作为 path 进行路由跳转。"
+		},
+		{
+			"name":"active-text-color",
+			"value":"---",
+			"defaultVal":"#409EFF",
+			"type":"string",
+			"description":"当前激活菜单的文字颜色仅支持 hex 格式。"
+		},
+		{
+			"name":"text-color",
+			"value":"---",
+			"defaultVal":"#303133",
+			"type":"string",
+			"description":"菜单的文字颜色。"
+		}
+	]
+}

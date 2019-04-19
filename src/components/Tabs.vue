@@ -16,7 +16,9 @@
 		    :name="item.name + ''"
 		  >
 				<el-tabs v-model="activeName1" @tab-click="handleClick" class="secondTabs">
-			    <el-tab-pane label="用户管理" name="1">用户管理</el-tab-pane>
+			    <el-tab-pane label="证号关系查询" name="1" class="papers-num">
+					<search-page/>
+			    </el-tab-pane>
 			    <el-tab-pane label="配置管理" name="2">配置管理</el-tab-pane>
 			    <el-tab-pane label="角色管理" name="3">角色管理</el-tab-pane>
 			    <el-tab-pane label="定时任务补偿" name="4">定时任务补偿</el-tab-pane>
@@ -28,9 +30,13 @@
 
 <script>
 	import url from '@/api'
+	import SearchPage from '@/components/SearchPage'
 
 	export default{
 		name:'Tabs',
+		components:{
+			SearchPage
+		},
 		data(){
 			return{
 				editableTabsValue: '1',
@@ -137,6 +143,13 @@
 				}
 				.el-tabs__item:last-child{
 					padding-right: 0;
+				}
+				.secondTabs{
+					.el-tabs__content{
+						width: 100%;
+						height: 390px;
+						background: red;
+				  }
 				}
 			}
 		}
