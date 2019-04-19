@@ -99,12 +99,14 @@ export default {
 
 <style lang="scss" scoped>
   .list-box{
-    width: 600px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
     // margin: 10px auto;
     .box{
       width: 600px;
-      height: 550px;
-      overflow-y: auto;
+      // height: 100%;
+      
       padding: 5px;
       background: #ddd;
       // &::-webkit-scrollbar { /*滚动条整体样式*/

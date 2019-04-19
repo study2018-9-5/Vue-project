@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>my-app</title>
     <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
     	#header{
     		height: 60px; 
     		background: #f60; 
@@ -37,13 +41,19 @@
       }
     </style>
   </head>
-  <body>
+  <body style="overflow:hidden">
   	<!-- 页面的头部 -->
   	<div id="header">
       <ul class="nav">
-        <li><a href="#/guest">首页</a></li>
+        <li><a href="#/home">首页</a></li>
         <li><a href="#/tabs">查询工具</a></li>
-        <li><a href="#/searchBtn">查询按钮</a></li>
+        <li><a href="#/searchBtn">查询按钮</a>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </li>
       </ul>
   	</div>
 

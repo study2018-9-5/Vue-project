@@ -9,6 +9,11 @@ Vue.use(ElementUI);
 import axios from 'axios';    // 引入axios
 Vue.prototype.$axios = axios; // 为了要在其他组件中使用，将axios改为vue的原型属性。
 
+import filters from '@/filters';
+Object.keys(filters).forEach(key => { //过滤器统一处理加载
+	Vue.filter(key, filters[key])
+})
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

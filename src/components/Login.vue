@@ -12,7 +12,7 @@
           <el-input v-model="formData.password" prefix-icon="iconfont icon-password"></el-input>
         </el-form-item>
       </el-form>
-      <el-button @click="submitForm">立即创建</el-button>
+      <el-button @click="submitForm">登陆</el-button>
     </div>
   </div>
 </template>
@@ -101,7 +101,11 @@
     position: relative;
     .login-bg{
       width: 100%;
-      height: 100%;
+      // height: 100%;
+      height: calc(100% + 60px);
+      position: absolute;
+      top: -60px;
+      z-index: 999;
     }
     .box{
       width: 320px;
@@ -110,6 +114,7 @@
       box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
       background:rgba(30, 30, 30, 0.6);
       position: absolute;
+      z-index: 9999;
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
