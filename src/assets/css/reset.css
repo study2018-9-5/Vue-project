@@ -31,3 +31,29 @@ html,body{height:100%;}
 body .el-input__prefix, .el-input__suffix {top: 2px;} 
 body .el-table th{background:#eee;}
 body .el-table td, .el-table th{padding: 10px 0;}
+
+/*dialog*/
+/*body .el-dialog{
+  border-radius: 6px;
+}
+body .el-dialog .el-dialog__header {
+  height: 49px;
+  padding: 10px 20px;
+  border-radius: 6px 6px 0 0;
+  background-color: #f4f7fa;
+}
+body .el-dialog__title {
+  line-height: 29px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+body .el-dialog__headerbtn {
+  top: 10px;
+  font-size: 25px;
+  line-height: 29px;
+  color: #333;
+}
+body .el-dialog .el-dialog__body {
+  padding: 20px;
+}*/

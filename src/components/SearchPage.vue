@@ -50,12 +50,17 @@
         <el-table-column prop="verificationWorkNum" label="核验工号"></el-table-column>
         <el-table-column label="操作" class="lastTd">
           <template slot-scope="scope">
-            <a @click="handle1(scope.$index, scope.row)">过户</a>
-            <a @click="handle2(scope.$index, scope.row)">拆机</a>
+            <!--<a @click="handle1(scope.$index, scope.row)">过户</a>
+            <a @click="handle2(scope.$index, scope.row)">拆机</a>-->
+            <a @click="handle3(scope.$index, scope.row)">申请解绑</a>
           </template>
         </el-table-column>
       </el-table>
     </div>
+
+    <el-dialog title="申请解绑" :visible.sync="unbindDialogVisible" class="unbindDialog">
+      
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -90,7 +95,8 @@
           ],
         },
         tableData:[],
-        total:''
+        total:'',
+        unbindDialogVisible: false,
 			}
 		},
 		methods:{
@@ -113,11 +119,15 @@
           console.log(err);
         });
       },
-      handle1:function(index,row){
-        console.log('index',index,'row',row)
-      },
-      handle2:function(index,row){
-        console.log(index,row)
+      // handle1:function(index,row){
+      //   console.log('index',index,'row',row)
+      // },
+      // handle2:function(index,row){
+      //   console.log(index,row)
+      // },
+      handle3:function(index,row){
+        console.log(index,row);
+        this.unbindDialogVisible = true;
       },
 		  searchBtn:function(formName){
         this.$refs[formName].validate((valid) => {
@@ -170,6 +180,9 @@
           cursor: pointer;
         }
       }
+    }
+    .unbindDialog{
+     
     }
 	}
 </style>
