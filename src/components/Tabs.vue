@@ -17,7 +17,7 @@
 		  >
 				<el-tabs v-model="activeName1" @tab-click="handleClick" class="secondTabs">
 			    <el-tab-pane label="证号关系查询" name="1" class="papers-num">
-					<search-page/>
+						<search-page/>
 			    </el-tab-pane>
 			    <el-tab-pane label="配置管理" name="2">配置管理</el-tab-pane>
 			    <el-tab-pane label="角色管理" name="3">角色管理</el-tab-pane>
@@ -146,9 +146,10 @@
 				}
 				.secondTabs{
 					.el-tabs__content{
-						width: 100%;
-						height: 390px;
-						background: red;
+						.el-tab-pane{
+							width: 100%;
+							height: 390px;
+						 }
 				  }
 				}
 			}

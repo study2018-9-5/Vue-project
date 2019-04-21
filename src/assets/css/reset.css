@@ -17,6 +17,8 @@ input::-ms-clear{display:none}
 img{display:block;border:0}
 input,select{vertical-align:middle}
 html,body{height:100%;}
+
+/* 重置滚动条样式 */
 ::-webkit-scrollbar{width:9px;height:9px;background:0 0}
 ::-webkit-scrollbar-corner{background:0 0}
 ::-webkit-resizer{background:0 0}
@@ -24,3 +26,8 @@ html,body{height:100%;}
 ::-webkit-scrollbar-track{background-color:rgba(33,37,43,.26)}
 ::-webkit-scrollbar-thumb{min-height:20px;background-color:rgba(33,37,43,.26)}
 ::-webkit-scrollbar-thumb:hover{background-color:#5A6274;border-width:1px}
+
+/* 重置elementui中的默认样式 */
+body .el-input__prefix, .el-input__suffix {top: 2px;} 
+body .el-table th{background:#eee;}
+body .el-table td, .el-table th{padding: 10px 0;}
