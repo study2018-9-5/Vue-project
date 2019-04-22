@@ -33,7 +33,7 @@ body .el-table th{background:#eee;}
 body .el-table td, .el-table th{padding: 10px 0;}
 
 /*dialog*/
-/*body .el-dialog{
+body .el-dialog{
   border-radius: 6px;
 }
 body .el-dialog .el-dialog__header {
@@ -50,10 +50,10 @@ body .el-dialog__title {
 }
 body .el-dialog__headerbtn {
   top: 10px;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 29px;
   color: #333;
 }
 body .el-dialog .el-dialog__body {
   padding: 20px;
-}*/
+}

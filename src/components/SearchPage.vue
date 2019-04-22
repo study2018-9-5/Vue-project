@@ -59,7 +59,17 @@
     </div>
 
     <el-dialog title="申请解绑" :visible.sync="unbindDialogVisible" class="unbindDialog">
-      
+      <div class="dialog-top">
+        <el-steps :active="1" align-center>
+          <el-step title="打印回执单" icon="iconfont icon-ai69"></el-step>
+          <el-step title="确认解绑" icon="iconfont icon-jiebang"></el-step>
+        </el-steps>
+      </div>
+
+      <div class="dialog-bottom">
+        <span>上一步</span>
+        <span>下一步</span>
+      </div>
     </el-dialog>
   </div>
 </template>
@@ -182,7 +192,35 @@
       }
     }
     .unbindDialog{
-     
+      .el-dialog{
+        width: 500px;
+        height: 400px;
+        background: red;
+        position: relative;
+        .el-dialog__header{
+          background: #f4f7fa;
+        }
+        .el-dialog__body{
+          .dialog-top{
+            .el-step__line{
+              top: 24px;
+            }
+            .el-step__icon{
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              border: 4px solid #ccc;
+            }
+          }
+          .dialog-bottom{
+            width: 100%;
+            height: 45px;
+            position: absolute;
+            bottom: 0;
+            background: #f7f9fb;
+          }
+        }
+      }
     }
 	}
 </style>
