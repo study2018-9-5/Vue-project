@@ -60,15 +60,19 @@
 
     <el-dialog title="申请解绑" :visible.sync="unbindDialogVisible" class="unbindDialog">
       <div class="dialog-top">
-        <el-steps :active="1" align-center>
+        <el-steps :active="active" align-center>
           <el-step title="打印回执单" icon="iconfont icon-ai69"></el-step>
           <el-step title="确认解绑" icon="iconfont icon-jiebang"></el-step>
         </el-steps>
       </div>
 
+      <div class="input-div">
+        属性方式:<el-input placeholder="请选择日期" v-model="input1" class="right-inp"></el-input>
+      </div>
+
       <div class="dialog-bottom">
-        <span>上一步</span>
-        <span>下一步</span>
+        <span @click="prev">上一步</span>
+        <span @click="next">下一步</span>
       </div>
     </el-dialog>
   </div>
@@ -107,6 +111,8 @@
         tableData:[],
         total:'',
         unbindDialogVisible: false,
+        active: 0,
+        input1:''
 			}
 		},
 		methods:{
@@ -139,6 +145,15 @@
         console.log(index,row);
         this.unbindDialogVisible = true;
       },
+      prev:function(){
+        if (this.active-- < 1) this.active = 0;
+        // this.active--
+      },
+      next:function(){
+        console.log(this.active++)
+        if (this.active++ > 0) this.active = 1;
+        // this.active++
+      },
 		  searchBtn:function(formName){
         this.$refs[formName].validate((valid) => {
           if (valid) {
@@ -156,7 +171,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped> 
 	.box{
 		width: 100%;
     height: 100%;
@@ -173,7 +188,7 @@
         color: #ed795a;
       }
     }
-    .bottom{
+    /deep/ .bottom{
       padding: 5px 10px;
       .total{
         padding: 10px 0;
@@ -192,35 +207,94 @@
       }
     }
     .unbindDialog{
-      .el-dialog{
+      /deep/ .el-dialog{
         width: 500px;
         height: 400px;
-        background: red;
+        // background: red;
         position: relative;
         .el-dialog__header{
           background: #f4f7fa;
+          box-shadow: 0px 2px 5px #ccc;
         }
         .el-dialog__body{
+          padding: 0;
           .dialog-top{
+            padding: 15px 0;
             .el-step__line{
               top: 24px;
             }
             .el-step__icon{
-              width: 50px;
-              height: 50px;
+              width: 40px;
+              height: 40px;
               border-radius: 50%;
-              border: 4px solid #ccc;
+              background: #f6f8fa;
+              border: 4px solid #b9c6d4;
+            }
+            .el-step__title{
+              color: #4b535f;
+              font-size: 12px;
+              font-weight: normal;
             }
           }
           .dialog-bottom{
             width: 100%;
             height: 45px;
-            position: absolute;
-            bottom: 0;
             background: #f7f9fb;
+            padding: 0 20px;
+            line-height: 45px;
+            border-radius: 0 0 6px 6px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            
+            span{
+              cursor: pointer;
+            }
+            span:nth-of-type(2){
+              float: right;
+            }
+          }
+        }
+      }
+      // 中间输入框
+      .input-div{
+        width: 100%;
+        height: 42px;
+        background: #f7f9fb;
+        border-top: 2px solid #eff0f1;
+        .right-inp{
+          width: 170px;
+          height: 30px;
+          /deep/ .el-input__inner{
+            width: 170px;
+            height: 30px;
           }
         }
       }
     }
 	}
+  /deep/ .el-step>.is-process{
+     .el-step__icon{
+      width: 48px!important; 
+      height: 48px!important;
+      background: #7ed57a!important;
+      color: #fff;
+      border: 4px solid #dceddb!important;
+    }
+  }
+  /deep/ .el-step>.is-finish{
+    height: 48px;
+    line-height: 54px;
+    .el-step__icon{
+      width: 40px!important; 
+      height: 40px!important;
+      background: #7ed57a!important;
+      color: #fff;
+      border: 4px solid #7ed57a!important;
+    }
+  }
+  /deep/ .el-step>.is-wait{
+    height: 48px;
+    line-height: 54px;
+  }  
 </style>
