@@ -1,15 +1,17 @@
 <template>
   <div class="login">
-    <img src="../../static/images/bg.jpg" alt="" class="login-bg"/>
+    <img src="../../../static/images/bg.jpg" alt="" class="login-bg"/>
     <div class="box">
       <el-form :model="formData" :rules="rules" ref="ruleForm" label-width="0" class="demo-ruleForm" hide-required-asterisk>
-        <el-form-item prop="username">
-          <el-input v-model="formData.username"> <!--prefix-icon="el-icon-search" 属性方式-->
+        <el-form-item prop="phone">
+          <el-input v-model="formData.phone"> <!--prefix-icon="el-icon-search" 属性方式-->
             <i slot="prefix" class="iconfont icon-user1"></i> <!--slot方式-->
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="formData.password" prefix-icon="iconfont icon-password"></el-input>
+          <el-input :type="inputType" v-model="formData.password" prefix-icon="iconfont icon-password">
+            <i slot="suffix" :class="eyes" @click="changeType" style="cursor:pointer"></i>
+          </el-input>
         </el-form-item>
       </el-form>
       <el-button @click="submitForm">登陆</el-button>
@@ -21,7 +23,7 @@
   import url from '@/api'
 
   function isvalidPhone(str) {
-    const reg = /^1[3|4|5|7|8][0-9]\d{8}$/
+    const reg = /^1[3456789][0-9]\d{8}$/
     return reg.test(str)
   }
   var validPhone=(rule, value, callback)=>{
@@ -37,21 +39,24 @@
     name: 'Login',
     data () {
       return {
+        inputType: 'text',
+        eyes: 'iconfont icon-yanjing-',
         formData: {
+          phone: '',
           username: '',
           password:'',
         },
         rules: {
-          username: [
-            { required: true, message: '请输账号', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ],
+          // username: [
+          //   { required: true, message: '请输账号', trigger: 'blur' },
+          //   { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          // ],
           password: [
             { required: true, message: '请输入密码', trigger: 'blur' }
+          ],
+          phone: [
+            { required: true, trigger: 'blur', validator: validPhone }//这里需要用到全局变量
           ]
-          // phone: [
-          //   { required: true, trigger: 'blur', validator: validPhone }//这里需要用到全局变量
-          // ]
         }  
       }
     },
@@ -89,6 +94,15 @@
               this.loginAjax();
             }
         })
+      },
+      changeType:function(){
+        if(this.inputType === "text"){
+          this.inputType = "password";
+          this.eyes = "iconfont icon-eyes_close";
+        }else{
+          this.inputType = "text"
+          this.eyes = "iconfont icon-yanjing-";
+        }
       } 
     }
   }

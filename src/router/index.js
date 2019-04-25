@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
+import Home from '@/components/Home/Home'
 import List from '@/components/List'
-import Login from '@/components/Login'
+import Login from '@/components/Login/Login'
 import Tabs from '@/components/Tabs'
 import SearchBtn from '@/components/SearchBtn'
 

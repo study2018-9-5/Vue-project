@@ -19,7 +19,7 @@
 		methods:{
       getData:function(){
         let self = this;
-        self.$axios.get('./../../static/json/MenuData.json').then(function(res){
+        self.$axios.get('./../../../static/json/MenuData.json').then(function(res){
             self.tableData = res.data.tableData;
         })
         .catch(function(err){

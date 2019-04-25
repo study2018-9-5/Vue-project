@@ -46,8 +46,8 @@
 </template>
 
 <script>
-	import NavMenu from "@/components/NavMenu";
-	import Table from "@/components/Table";
+	import NavMenu from "@/components/Home/NavMenu";
+	import Table from "@/components/Home/Table";
 	export default{
 		name: 'Home',
 		components:{
