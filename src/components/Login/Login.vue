@@ -14,7 +14,8 @@
           </el-input>
         </el-form-item>
       </el-form>
-      <el-button @click="submitForm">登陆</el-button>
+      <el-checkbox v-model="checked">记住密码</el-checkbox>
+      <el-button type="primary" @click="submitForm" class="loginBtn">登陆</el-button>
     </div>
   </div>
 </template>
@@ -39,7 +40,8 @@
     name: 'Login',
     data () {
       return {
-        inputType: 'text',
+        inputType: 'password',
+        checked: false,
         eyes: 'iconfont icon-yanjing-',
         formData: {
           phone: '',
@@ -61,9 +63,18 @@
       }
     },
     mounted() {
-      // this.loginAjax();
+      this.remember();
     },
     methods:{
+      remember:function(){
+        let self = this;
+        let checked = window.localStorage.getItem("checked");
+        if(checked){
+          self.formData.phone = window.localStorage.getItem("phone");
+          self.formData.password = window.localStorage.getItem("password");
+          self.checked = JSON.parse(checked);
+        }
+      },
       loginAjax:function () {
         let self = this;
         let params = {
@@ -75,7 +86,7 @@
             console.log(res);
             if(res.data.code == 200){
               setTimeout(function(){
-                self.$router.push({ path: "/list", name: 'List'});
+                // self.$router.push({ path: "/list", name: 'List'});
               },1000)
               self.$message({
                 type:'success',
@@ -87,14 +98,23 @@
             console.log(err);
           });
       },
+      // 提交验证
       submitForm:function(){
         let self = this;
         self.$refs.ruleForm.validate((valid) => {
             if(valid){
-              this.loginAjax();
+              self.loginAjax();
+              if(self.checked == true){
+                window.localStorage.setItem("phone",self.formData.phone);
+                window.localStorage.setItem("password",self.formData.password);
+                window.localStorage.setItem("checked",self.checked);
+              }else{
+                window.localStorage.clear()
+              }
             }
         })
       },
+      // 密码的显示和隐藏
       changeType:function(){
         if(this.inputType === "text"){
           this.inputType = "password";
@@ -124,14 +144,21 @@
     .box{
       width: 320px;
       height: 350px;
+      background:rgba(30, 30, 30, 0.6);
+      padding: 90px 20px;
       border-radius: 3px;
       box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
-      background:rgba(30, 30, 30, 0.6);
       position: absolute;
       z-index: 9999;
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
+      .loginBtn{
+        width: 100%;
+        margin-top: 8px;
+        font-size: 16px;
+        letter-spacing: 4px;
+      }
     }
   }
 </style>

@@ -115,19 +115,27 @@
 </script>
 
 <style lang="scss" scoped>
+  .submitDialog{
+    /deep/ .el-dialog__header{
+      background: #fff;
+    }
+    /deep/ .el-dialog__body {
+      padding: 10px 20px;
+    }
+  }
   .el-dialog{
     .el-dialog__body{
       padding-bottom: 0;
       .dialog-div{
         .info{
           padding-bottom: 15px;
-          font-weight: bold;
+          // font-weight: bold;
         }
         .detail{
           .detail-info-btn{
             margin-top: 5px;
-            font-size: 12px;
-            font-weight: bold;
+            font-size: 14px;
+            // font-weight: bold;
             cursor: pointer;
           }
           .detail-info-div{
