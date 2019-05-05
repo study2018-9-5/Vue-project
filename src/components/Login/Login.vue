@@ -86,12 +86,12 @@
             console.log(res);
             if(res.data.code == 200){
               setTimeout(function(){
-                // self.$router.push({ path: "/list", name: 'List'});
+                self.$router.push({ path: "/home", name: 'Home'});
               },1000)
-              self.$message({
-                type:'success',
-                message:res.data.message
-              })
+              // self.$message({
+              //   type:'success',
+              //   message:res.data.message
+              // })
             }
           })
           .catch(function (err) {
@@ -105,11 +105,11 @@
             if(valid){
               self.loginAjax();
               if(self.checked == true){
-                window.localStorage.setItem("phone",self.formData.phone);
+                window.localStorage.setItem("phone",self.formData.phone); //设置localStorage
                 window.localStorage.setItem("password",self.formData.password);
                 window.localStorage.setItem("checked",self.checked);
               }else{
-                window.localStorage.clear()
+                window.localStorage.clear(); //清除localStorage
               }
             }
         })

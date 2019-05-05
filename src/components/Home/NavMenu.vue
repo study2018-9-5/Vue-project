@@ -32,7 +32,7 @@
         <i class="el-icon-menu"></i>
         <span>导航二</span>
       </template>
-      <el-menu-item index="2-1">选项2-1</el-menu-item>
+      <el-menu-item index="/routerSkip">路由传参</el-menu-item>
       <el-menu-item index="2-2">选项2-2</el-menu-item>
       <el-menu-item index="2-3">选项2-3</el-menu-item>
       <el-submenu index="2-4">
