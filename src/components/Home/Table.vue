@@ -37,7 +37,7 @@
   /deep/ .has-gutter{
     tr{
       th{
-        color:#000;
+        color: #000;
         background:#eee;
       }
     }

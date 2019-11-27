@@ -1,6 +1,7 @@
 import url from './Login'
 
 let host = 'http://rap2api.taobao.org/app/mock/164688'
+// let host = 'https://www.baidu.com'
 
 // 遍历对象: 通常用for in来遍历对象的键名
 // for in遍历数组的毛病

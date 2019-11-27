@@ -15,7 +15,7 @@
         </el-form-item>
       </el-form>
       <el-checkbox v-model="checked">记住密码</el-checkbox>
-      <el-button type="primary" @click="submitForm" class="loginBtn">登陆</el-button>
+      <el-button type="primary" @click="submitForm" class="loginBtn">登陆{{$store.state.login}}</el-button>
     </div>
   </div>
 </template>
@@ -85,13 +85,14 @@
           .then(function (res) {
             console.log(res);
             if(res.data.code == 200){
-              setTimeout(function(){
-                self.$router.push({ path: "/home", name: 'Home'});
-              },1000)
+              // setTimeout(function(){
+              //   self.$router.push({ path: "/home", name: 'Home'});
+              // },1000)
               // self.$message({
               //   type:'success',
               //   message:res.data.message
               // })
+              self.$store.commit('checkLogin',true);
             }
           })
           .catch(function (err) {

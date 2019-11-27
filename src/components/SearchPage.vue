@@ -86,7 +86,7 @@
         callback()
       }
   }
-	export default{
+	export default {
 		name: 'SearchPage',
 		data(){
 			return{
@@ -120,7 +120,6 @@
         let self = this;
         this.$axios.get(url.searchTable)
         .then(function (res) {
-          
           if(res.data.code == 200){
             self.tableData = res.data.data;
             self.total = res.data.data.length;
